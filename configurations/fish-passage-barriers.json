@@ -1,0 +1,63 @@
+﻿{
+	"defaultBasemap": "Topographic",
+	"operationalLayers":  [
+		{
+			"url": "http://hqolymgis21t/ArcGIS/rest/services/FishPassage/CorrectedBarriersCaseArea/MapServer",
+			"type": "ArcGISDynamicMapServiceLayer",
+			"id":  "corrected_barriers_case_area",
+			"title":  "Corrected Barriers Case Area"
+		},
+		{
+			"url": "http://hqolymgis21t/ArcGIS/rest/services/FishPassage/InDesignBarriersCaseArea/MapServer",
+			"type": "ArcGISDynamicMapServiceLayer",
+			"title":  "In-Design Barriers Case Area",
+			"id":  "in_design_barriers_case_area"
+		},
+		{
+			"url": "http://hqolymgis21t/ArcGIS/rest/services/FishPassage/UncorrectedBarriersCaseArea/MapServer",
+			"type": "ArcGISDynamicMapServiceLayer",
+			"id":  "uncorrected_barriers_case_area",
+			"title":  "Uncorrected Barriers Case Area"
+		},
+		{
+			"url": "http://hqolymgis21t/ArcGIS/rest/services/FishPassage/CorrectedBarriersStatewide/MapServer",
+			"type": "ArcGISDynamicMapServiceLayer",
+			"id":  "corrected_barriers_statewide",
+			"title":  "Corrected Barriers Statewide",
+			"visibility": true
+		},
+		{
+			"url": "http://hqolymgis21t/ArcGIS/rest/services/FishPassage/UncorrectedBarriersStatewide/MapServer",
+			"type": "ArcGISDynamicMapServiceLayer",
+			"id":  "uncorrected_barriers_statewide",
+			"title":  "Uncorrected Barriers Statewide",
+			"visibility": true
+		},
+		{
+			"url":  "http://hqolymgis21t/ArcGIS/rest/services/FishPassage/CaseAreaBoundary/MapServer",
+			"type": "ArcGISDynamicMapServiceLayer",
+			"id": "case_area_boundary",
+			"title": "Case Area Boundary"
+		},
+		{
+			"url": "//fortress.wa.gov/dfw/gispublic/arcgis/rest/services/ApplicationServices/NHD_Hydro_Cache/MapServer",
+			"type": "ArcGISTiledMapServiceLayer",
+			"id": "hydrology",
+			"title": "Rivers and Lakes"
+		},
+		{
+			"url": "http://www.wsdot.wa.gov/geosvcs/ArcGIS/rest/services/FunctionalClass/WSDOTFunctionalClassBaseMap/MapServer/25",
+			"type": "FeatureLayer",
+			"id":  "state_boundary",
+			"title":  "State Boundary",
+			"visibility": true
+		},
+		{
+			"url": "http://services.arcgis.com/6lCKYNJLvwTXqrmp/arcgis/rest/services/WAECY_WRIA/FeatureServer/0",
+			"type": "FeatureLayer",
+			"id":  "WRIA",
+			"title":  "WRIA",
+			"outFields": ["WRIA_NR"]
+		}
+	]
+}

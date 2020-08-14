@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<title>WSDOT GeoPortal (alpha)</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" href="//js.arcgis.com/3.10/js/esri/css/esri.css" />
+	<link rel="stylesheet" href="//js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css" />
+	<link href="Style/index.css" rel="stylesheet" />
+</head>
+<body>
+	<!-- Header / Navbar -->
+	<div id="topNavBar" class="navbar navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="navbar-header">
+					<a class="wsdot-logo"  href="https://www.astra-honda.com/"></a>
+					<div class="navbar-brand">
+						 <span style="color: black">GeoPortal POC for AHM</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row row-offcanvas row-offcanvas-right" id="mapRow">
+
+			<!-- Map -->
+			<div id="map" class="col-xs-12 col-sm-7 col-md-9">
+				<div id="tools" class="visible-xs">
+					<button type="button" class="btn" data-toggle="offcanvas"><span class="glyphicon glyphicon-cog"></span></button>
+				</div>
+				<progress id="progressBar" hidden="hidden"></progress>
+			</div>
+
+			<!-- Tools panel-->
+			<div class="col-sm-5 col-md-3 sidebar-offcanvas" id="sidebar">
+				<div class="panel">
+					<ul id="tabs" class="nav nav-tabs">
+						<li><a href="#legendPane"><span class="glyphicon glyphicon-list-alt" title="Legend"></span></a></li>
+						<li><a href="#basemapsPane"><span class="glyphicon glyphicon-th-large" title="Basemaps"></span></a></li>
+						<li class="active"><a href="#layersPane"><span class="glyphicon glyphicon-list" title="Layers"></span></a></li>
+						<li><a href="#elcPane"><span class="glyphicon glyphicon-road"></span></a></li>
+						<li><a href="#toolsPane"><span class="glyphicon glyphicon-wrench"></span></a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane" id="legendPane">
+							<div id="legendWidget" class="claro"></div>
+						</div>
+						<div class="tab-pane" id="basemapsPane">
+							<div id="basemapGallery" class="claro"></div>
+						</div>
+						<div class="tab-pane active" id="layersPane">
+							<div class="panel-group" id="layersAccordion">
+								<div class="panel panel-default" id="layersPanelGroup">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#layersAccordion" href="#layersPanel">Layers</a>
+										</h4>
+									</div>
+
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#layersAccordion" href="#agolPanel">Add Data</a>
+										</h4>
+									</div>
+								
+								</div>
+
+
+							</div>
+						</div>
+						<div class="tab-pane" id="elcPane">
+							<!-- Will be loaded from template -->
+						</div>
+						<div class="tab-pane" id="toolsPane">
+							<div class="panel-group" id="toolsAccordion">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#toolsAccordion" href="#printPanel">
+												<span class="glyphicon glyphicon-print"></span> Print
+											</a>
+										</h4>
+									</div>
+									<div id="printPanel" class="panel-collapse collapse in">
+										<div class="panel-body">
+											<div id="print">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!--row-->
+	</div>
+
+
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script>
+		(function (root) {
+			var dojoConfig = {
+				async: true,
+				packages: [
+					{
+						name: "layerList",
+						location: root + "Script",
+						main: "layer-list"
+					},
+					{
+						name: "elc",
+						location: root + "Script",
+						main: "elc"
+					},
+					{
+						name: "elc-controls",
+						location: root + "Script/elc-controls",
+						main: "elc-controls"
+					},
+					{
+						name: "LayerFactory",
+						location: root + "Script/LayerFactory",
+						main: "LayerFactory"
+					},
+					{
+						name: "print-tool",
+						location: root + "Script/print-tool"
+					},
+					{
+						name: "map-identify-task",
+						location: root + "Script/map-identify-task"
+					}
+				]
+			}
+			window.dojoConfig = dojoConfig;
+		}([location.origin, location.pathname.replace(/[^\/]+$/, "")].join("")));
+	</script>
+	<script src="//js.arcgis.com/3.10/"></script>
+	<script src="Script/index.js"></script>
+</body>
+</html>
